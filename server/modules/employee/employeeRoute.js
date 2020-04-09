@@ -1,10 +1,11 @@
 const employeeRoute = require('express').Router();
 const responseHandler = require('../../utils/responseHandler');
 const employeeFacade = require('./employeeFacade');
+const employeeValidation = require('./employeeValidation');
 
 
 /**  Frontend : Create new employee */
-employeeRoute.route('/create').post([], (req, res) => {
+employeeRoute.route('/create').post([employeeValidation.createValidation], (req, res) => {
     employeeFacade.create(req).then(result => {
         responseHandler.successResponse(res, result);
     }).catch(err => {

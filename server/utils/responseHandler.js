@@ -11,7 +11,8 @@ function successResponse(res, result) {
 function errorHandler(res, result) {
     var response = {
         status: result.status,
-        message: result.message
+        message: result.message,
+        data: {}
     }
     _sendResponse(res, response);
 }
