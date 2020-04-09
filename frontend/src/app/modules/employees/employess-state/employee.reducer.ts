@@ -23,6 +23,11 @@ export const getEmployees = createSelector(
     employeeAdapter.getSelectors().selectAll
 );
 
+export const getError = createSelector(
+    createFeatureSelector('employees'),
+    (state) => {return state['loaded']}
+)
+
 export const defaultEmployee: EmployeeState = {
     ids: [],
     entities: {},

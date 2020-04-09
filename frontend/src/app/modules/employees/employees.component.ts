@@ -19,10 +19,16 @@ export class EmployeesComponent implements OnInit {
   constructor(private store: Store<EmployeeReducer.AppState>) { }
 
   async ngOnInit() {
+    // create action & call API
     this.store.dispatch(new EmployeeAction.LoadEmployees());
+
+    // get the employees values
     this.employees = await this.store.pipe(select(EmployeeReducer.getEmployees));
+
+    // get error if found
+    this.error = await this.store.pipe(select(EmployeeReducer.getError));
     
-    console.log('getEmployees', this.employees);
+    console.log('error', this.error);
 
   }
 

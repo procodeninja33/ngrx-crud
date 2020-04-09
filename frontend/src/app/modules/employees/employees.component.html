@@ -1,5 +1,7 @@
 <h3>Employees</h3>
 <div class="jumbotron">
+    <div>{{(error | async) | json}}</div>
+    <div>{{(empyloyee | async) | json}}</div>
     <table class="table table-hover">
         <thead>
             <tr class="table-primary">
@@ -23,5 +25,4 @@
             </tr>
         </tbody>
     </table>
-    <div>{{(employees | async) | json}}</div>
 </div>
