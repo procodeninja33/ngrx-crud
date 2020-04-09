@@ -15,9 +15,9 @@ function getAll(req) {
 
     let findAllQuery = {
         emp_isDelete: false
-    }
-
-    return employeeModel.find(findAllQuery).then((result) => {
+    };
+    let agque = [{ $match: findAllQuery }, { $project: { _id: 1, emp_isDelete: 1, emp_firstname: 1, emp_lastname: 1, emp_mobile: 1, emp_email: 1, id: '$_id' } }]
+    return employeeModel.aggregate(agque).then((result) => {
         return { employees: result }
     }).catch((err) => {
         return 1;

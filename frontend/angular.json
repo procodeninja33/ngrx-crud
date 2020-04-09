@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "crudWithNgrx"
+    }
+  },
+  "defaultProject": "crudWithNgrx",
+  "cli": {
+    "analytics": false
+  }
 }
